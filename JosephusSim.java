@@ -11,7 +11,7 @@ public class JosephusSim {
       try {
          // load names from the file in order, generating a singly linked list of PersonNodes
          Scanner file = new Scanner(new File(fileName));
-         size = 0;
+         size = 1;
          circle = new PersonNode(file.next());
          track = circle;
          while(file.hasNext()) {
@@ -28,6 +28,7 @@ public class JosephusSim {
          // generate, print, and save the random elimination count
          Random r = new Random();
          eliminationCount = r.nextInt(size/2) + 1;
+         System.out.println("numbers = " + eliminationCount);
          
       } catch(FileNotFoundException e) {
          System.out.println("Something went wrong with " + fileName);
@@ -44,7 +45,7 @@ public class JosephusSim {
          track = track.next;         
       }
       // print who will be eliminated
-      System.out.println(track.name + " eliminated!");
+      System.out.println(track.next.name + " eliminated!");
       // eliminate the person and update "front" of the circle and size
       track.next = track.next.next;
       circle = track.next;
@@ -66,6 +67,7 @@ public class JosephusSim {
       } else {
       // print the remaining survivors (watch out for infinite loop since list is circular)
          for(int i = 0; i < size; i++){
+            result += (i + 1) + "-";
             result += track.name + " ";
             track = track.next;
          }
