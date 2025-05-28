@@ -54,15 +54,23 @@ public class JosephusSim {
    
    public boolean isOver() {
       // check if there's only one person left in the circle
-      return false;
+      return (size == 1);
    }
    
    public String toString() {
       // if there's only one person left, print them as the last survivor
-      
+      String result = "";
+      if(isOver()){
+         result += circle.name;
+         
+      } else {
       // print the remaining survivors (watch out for infinite loop since list is circular)
-
-      return "";
+         for(int i = 0; i < size; i++){
+            result += track.name + " ";
+            track = track.next;
+         }
+      }
+      return result;
    }
 
 }
