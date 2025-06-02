@@ -67,9 +67,10 @@ public class JosephusSim {
       } else {
          track = circle; //re-point the tracker as the front we stored in eliminate()
          // print the remaining survivors (watch out for infinite loop since list is circular)
+         result += "Remaing survivors: ";
          for(int i = 1; i <= size; i++){ //create a for-loop, starts with printing the front "circle" changed from eliminate()
             result += i + "-";
-            result += track.name + " ";
+            result += track.name + ", ";
             track = track.next;
          }      
          return result;
@@ -77,3 +78,56 @@ public class JosephusSim {
    }
 
 }
+
+
+/*
+#PROGRAM OUTPUT
+
+=== Elimination count is 4===
+Remaing survivors: 1-Muhammad, 2-Beza, 3-Ibrar, 4-Nur, 5-Krystal, 6-River, 7-Soham, 8-Leon, 9-Will, 10-Qiao, 
+
+Continue elimination? <press enter>
+
+Nur eliminated!
+Remaing survivors: 1-Krystal, 2-River, 3-Soham, 4-Leon, 5-Will, 6-Qiao, 7-Muhammad, 8-Beza, 9-Ibrar, 
+
+Continue elimination? <press enter>
+
+Leon eliminated!
+Remaing survivors: 1-Will, 2-Qiao, 3-Muhammad, 4-Beza, 5-Ibrar, 6-Krystal, 7-River, 8-Soham, 
+
+Continue elimination? <press enter>
+
+Beza eliminated!
+Remaing survivors: 1-Ibrar, 2-Krystal, 3-River, 4-Soham, 5-Will, 6-Qiao, 7-Muhammad, 
+
+Continue elimination? <press enter>
+
+Soham eliminated!
+Remaing survivors: 1-Will, 2-Qiao, 3-Muhammad, 4-Ibrar, 5-Krystal, 6-River, 
+
+Continue elimination? <press enter>
+
+Ibrar eliminated!
+Remaing survivors: 1-Krystal, 2-River, 3-Will, 4-Qiao, 5-Muhammad, 
+
+Continue elimination? <press enter>
+
+Qiao eliminated!
+Remaing survivors: 1-Muhammad, 2-Krystal, 3-River, 4-Will, 
+
+Continue elimination? <press enter>
+
+Will eliminated!
+Remaing survivors: 1-Muhammad, 2-Krystal, 3-River, 
+
+Continue elimination? <press enter>
+
+Muhammad eliminated!
+Remaing survivors: 1-Krystal, 2-River, 
+
+Continue elimination? <press enter>
+
+River eliminated!
+Krystal is the last survivor!
+*/
